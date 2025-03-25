@@ -17,7 +17,7 @@ function getComputerChoice(){
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice){
-        playRound(getComputerChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice())
     }
 
     let winner = false;
@@ -28,6 +28,8 @@ function playRound(humanChoice, computerChoice) {
 
     return winner
 }
+
+
 
 
 
