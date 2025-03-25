@@ -4,11 +4,11 @@ const CHOICES = ["rock", "paper", "scissors"]
 random = () => Math.floor(Math.random() * CHOICES.length)
 
 function getHumanChoice(){
-    let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
-    while (!CHOICES.includes(choice)){
-        choice = prompt("Invalid choice. Choose rock, paper, or scissors").toLowerCase();
+    let choice = prompt("Choose rock, paper, or scissors");
+    while (!choice || !CHOICES.includes(choice.toLowerCase())){
+        choice = prompt("Invalid choice. Choose rock, paper, or scissors");
     }
-    return choice
+    return choice.toLowerCase()
 }
 
 function getComputerChoice(){
@@ -18,7 +18,7 @@ function getComputerChoice(){
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice){
         alert("Draw! Choose again")
-        playRound(getHumanChoice(), getComputerChoice());
+        return playRound(getHumanChoice(), getComputerChoice());
     }
 
     let winner = false;
