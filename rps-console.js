@@ -39,11 +39,11 @@ function displayRoundResult(round, humanChoice, computerChoice, winner){
     const humanChoiceText = capitalize(humanChoice);
     const computerChoiceText = capitalize(computerChoice);
     if (winner){
-        console.log(`You win! ${humanChoiceText} beats ${computerChoiceText}`)
-        return alert(`You win! ${humanChoiceText} beats ${computerChoiceText}`)
+        console.log(`Round ${round}: You win! ${humanChoiceText} beats ${computerChoiceText}`)
+        return alert(`Round ${round}: You win! ${humanChoiceText} beats ${computerChoiceText}`)
     } else {
-        console.log(`You lose! ${computerChoiceText} beats ${humanChoiceText}`)
-        return alert(`You lose! ${computerChoiceText} beats ${humanChoiceText}`)
+        console.log(`Round ${round}: You lose! ${computerChoiceText} beats ${humanChoiceText}`)
+        return alert(`Round ${round}: You lose! ${computerChoiceText} beats ${humanChoiceText}`)
     }
 
 }
