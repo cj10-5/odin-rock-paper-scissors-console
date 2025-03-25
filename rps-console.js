@@ -17,7 +17,7 @@ function getComputerChoice(){
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice){
-        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice(), getComputerChoice());
     }
 
     let winner = false;
@@ -29,7 +29,33 @@ function playRound(humanChoice, computerChoice) {
     return winner
 }
 
+function capitalize(string){ return string[0].toUpperCase + string.slice(1)}
 
+function displayRoundResult(humanChoice, computerChoice, winner){
+    const humanChoiceText = capitalize(humanChoice);
+    const computerChoiceText = capitalize(computerChoice);
+    if (winner){
+        return alert(`You win! ${humanChoiceText} beats ${computerChoiceText}`)
+    } else {
+        return alert(`You lose! ${computerChoiceText} beats ${humanChoiceText}`)
+    }
+
+}
+
+function playGame(){
+    let humanScore = 0;
+    let computerScore = 0;
+    let round = 0;
+
+    while (round < 5){
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        const winner = playRound();
+        displayRoundResult(winner)
+    }
+
+
+}
 
 
 
