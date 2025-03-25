@@ -1,5 +1,7 @@
 
-const CHOICES = ["rock", "paper", "scissor"]
+const CHOICES = ["rock", "paper", "scissors"]
+
+random = () => Math.floor(Math.random() * CHOICES.length)
 
 function getHumanChoice(){
     let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
@@ -9,7 +11,12 @@ function getHumanChoice(){
     return choice
 }
 
+function getComputerChoice(){
+    return CHOICES[random()]
+}
+
 console.log(getHumanChoice())
+console.log(getComputerChoice())
 
 
 console.log(
