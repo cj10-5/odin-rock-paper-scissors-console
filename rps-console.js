@@ -47,10 +47,9 @@ function displayRoundResult(humanChoice, computerChoice, winner){
 
 }
 
-
+let humanScore = 0;
+let computerScore = 0;
 function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
     
     let round = 0;
     while (round < 5){
@@ -58,9 +57,13 @@ function playGame(){
         let computerChoice = getComputerChoice();
         const winner = playRound();
         displayRoundResult(humanChoice, computerChoice, winner);
+        round++;
     }
-}
 
+    humanScore > computerScore ? 
+    alert("YOU WIN THE GAME! GREAT JOB!") :
+    alert("YOU LOSE THE GAME! BETTER LUCK NEXT TIME")
+}
 
 
 console.log(getHumanChoice())
