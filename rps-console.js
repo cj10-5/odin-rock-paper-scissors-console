@@ -26,6 +26,9 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === "scissors" && computerChoice === "paper"
     ){ winner = true; }
 
+    // If winner is true increment humanScore, else increment computerScore
+    winner ? humanScore++ : computerScore++
+
     return winner
 }
 
@@ -35,26 +38,27 @@ function displayRoundResult(humanChoice, computerChoice, winner){
     const humanChoiceText = capitalize(humanChoice);
     const computerChoiceText = capitalize(computerChoice);
     if (winner){
+        console.log(`You win! ${humanChoiceText} beats ${computerChoiceText}`)
         return alert(`You win! ${humanChoiceText} beats ${computerChoiceText}`)
     } else {
+        console.log(`You lose! ${computerChoiceText} beats ${humanChoiceText}`)
         return alert(`You lose! ${computerChoiceText} beats ${humanChoiceText}`)
     }
 
 }
 
+
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
+    
     let round = 0;
-
     while (round < 5){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
         const winner = playRound();
-        displayRoundResult(winner)
+        displayRoundResult(humanChoice, computerChoice, winner);
     }
-
-
 }
 
 
