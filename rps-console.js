@@ -15,11 +15,27 @@ function getComputerChoice(){
     return CHOICES[random()]
 }
 
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice){
+        playRound(getComputerChoice(), getComputerChoice())
+    }
+
+    let winner = false;
+    if (humanChoice === "rock" && computerChoice === "scissors" ||
+        humanChoice === "paper" && computerChoice === "rock" ||
+        humanChoice === "scissors" && computerChoice === "paper"
+    ){ winner = true; }
+
+    return winner
+}
+
+
+
 console.log(getHumanChoice())
 console.log(getComputerChoice())
 
 
-console.log(
+prompt.log(
     `Rock...,
      Paper..., 
      Scissors..., 
