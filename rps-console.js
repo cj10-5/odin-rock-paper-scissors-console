@@ -6,7 +6,7 @@ random = () => Math.floor(Math.random() * CHOICES.length)
 function getHumanChoice(){
     let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
     while (!CHOICES.includes(choice)){
-        choice = prompt("Choose rock, paper, or scissors").toLowerCase();
+        choice = prompt("Invalid choice. Choose rock, paper, or scissors").toLowerCase();
     }
     return choice
 }
@@ -17,6 +17,7 @@ function getComputerChoice(){
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice){
+        alert("Draw! Choose again")
         playRound(getHumanChoice(), getComputerChoice());
     }
 
@@ -55,7 +56,7 @@ function playGame(){
     while (round < 5){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
-        const winner = playRound();
+        const winner = playRound(humanChoice, computerChoice);
         displayRoundResult(humanChoice, computerChoice, winner);
         round++;
     }
@@ -66,12 +67,9 @@ function playGame(){
 }
 
 
-console.log(getHumanChoice())
-console.log(getComputerChoice())
+console.log(`Rock..,
+Paper.., 
+Scissors.., 
+Shoot!`)
 
-
-prompt.log(
-    `Rock...,
-     Paper..., 
-     Scissors..., 
-     Shoot!`)
+playGame()
