@@ -33,9 +33,9 @@ function playRound(humanChoice, computerChoice) {
     return winner
 }
 
-function capitalize(string){ return string[0].toUpperCase + string.slice(1)}
+function capitalize(string){ return string.at(0).toUpperCase() + string.slice(1)}
 
-function displayRoundResult(humanChoice, computerChoice, winner){
+function displayRoundResult(round, humanChoice, computerChoice, winner){
     const humanChoiceText = capitalize(humanChoice);
     const computerChoiceText = capitalize(computerChoice);
     if (winner){
@@ -57,7 +57,7 @@ function playGame(){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
         const winner = playRound(humanChoice, computerChoice);
-        displayRoundResult(humanChoice, computerChoice, winner);
+        displayRoundResult(round + 1, humanChoice, computerChoice, winner);
         round++;
     }
 
