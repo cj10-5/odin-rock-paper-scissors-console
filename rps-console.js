@@ -16,10 +16,10 @@ function getComputerChoice(){
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice){
-        alert("Draw! Choose again")
-        return playRound(getHumanChoice(), getComputerChoice());
-    }
+    if (humanChoice === computerChoice){ 
+        alert("Draw. Choose again");
+        return; 
+    } 
 
     let winner = false;
     if (humanChoice === "rock" && computerChoice === "scissors" ||
@@ -31,6 +31,7 @@ function playRound(humanChoice, computerChoice) {
     winner ? humanScore++ : computerScore++
 
     return winner
+
 }
 
 function capitalize(string){ return string.at(0).toUpperCase() + string.slice(1)}
@@ -56,7 +57,15 @@ function playGame(){
     while (round < 5){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
-        const winner = playRound(humanChoice, computerChoice);
+
+        let winner = playRound(humanChoice, computerChoice);
+        // If draw run playRound again with new choices
+        while (winner === undefined){
+            humanChoice = getHumanChoice();
+            computerChoice = getComputerChoice();
+            winner = playRound(humanChoice, computerChoice);
+        }
+
         displayRoundResult(round + 1, humanChoice, computerChoice, winner);
         round++;
     }
